@@ -54,10 +54,23 @@ namespace QuanLyQuanCafe.DAO
         }
         public bool InsertFood(string name, int id, float price)
         {
-            string query = string.Format("INSERT dbo.Food ( name, idCategory, price )VALUES  ( N'{0}', {1}, {2})", name, id, price);
+             /*result;
+            string queryname = string.Format("SELECT * from dbo.Food where name =  ( N'{0}')", name);
+            int resultname = DataProvider.Instance.ExecuteNonQuery(queryname);
+            if (resultname > 0)
+            {
+                return ;
+            }
+            else
+            */
+
+            
+            string query = string.Format("INSERT dbo.Food ( name, idCategory, price )VALUES  ( N'{0}', {1}, {2}) where name != '"+name+"'", name, id, price);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
+
+            
         }
 
         public bool UpdateFood(int idFood, string name, int id, float price)
