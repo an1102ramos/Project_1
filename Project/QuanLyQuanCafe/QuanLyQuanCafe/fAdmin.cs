@@ -165,6 +165,10 @@ namespace QuanLyQuanCafe
         }
         private void btnAddFood_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+            
             string name = txbFoodName.Text;
             int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
             float price = (float)nmFoodPrice.Value;
@@ -178,7 +182,12 @@ namespace QuanLyQuanCafe
             }
             else
             {
-                MessageBox.Show("Có lỗi khi thêm thức ăn");
+                MessageBox.Show("Có lỗi khi thêm đồ uống");
+            }
+            }
+            catch
+            {
+                MessageBox.Show("Có lỗi khi thêm đồ uống");
             }
         }
         private void btnEditFood_Click(object sender, EventArgs e)
